@@ -1,6 +1,7 @@
 import pymongo
 import configparser
 import pandas as pd
+from flask import Flask, render_template, request, url_for
 
 
 # Fetching credentials
@@ -34,8 +35,42 @@ movie_titles.drop("_id", axis=1, inplace=True)
 movie_titles.set_index('Movie_Id', inplace=True)
 
 
+# App configuration
+app = Flask(__name__)
+
+# Routes ... 
+
+# Home
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+# Model 1
+
+@app.route('/model1')
+def model1():
+    return render_template('model1.html')
+
+# Model 2
+
+@app.route('/model2')
+def model2():
+    return render_template('model2.html')
+
+# Model 3
+
+@app.route('/model3')
+def model3():
+    return render_template('model3.html')
+
+# Model 4
+
+@app.route('/model4')
+def model4():
+    return render_template('model4.html')
+
+
 # Driver code
 if __name__=="__main__":
-
-    # print(sim_scores.head())
-    print(movie_titles.head())
+    app.run(debug=True)

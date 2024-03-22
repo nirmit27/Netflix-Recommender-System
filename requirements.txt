@@ -1,5 +1,8 @@
 pandas
 numpy
+flask
 scikit-learn
 pymongo
-flask
+Pyarrow
+opendatasets
+Gunicorn
